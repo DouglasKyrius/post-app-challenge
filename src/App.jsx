@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import styled from "styled-components/macro";
+import { ScrollToTop } from "./components/ScrollToTop";
 // Pages
 import { HomePage, PostPage } from "./pages";
 // Styled Components
@@ -14,10 +15,12 @@ const Container = styled.div`
 const App = () => {
   return (
     <Container>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/post/:id" element={<PostPage />} />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/post/:id" element={<PostPage />} />
+        </Routes>
+      </ScrollToTop>
     </Container>
   );
 };
