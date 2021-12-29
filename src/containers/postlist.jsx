@@ -1,10 +1,14 @@
 import React from "react";
 import { PostList, PostItem } from "../components";
+import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
 
 export function PostListContainer({ posts }) {
+  const { count } = useInfiniteScroll();
+
   return (
     <PostList>
-      {posts.map((post) => (
+      {posts.slice(0, count).map((post) => (
         <PostItemContainer post={post} key={post.id} />
       ))}
     </PostList>
@@ -16,7 +20,7 @@ export function PostItemContainer({ post: { body, title, id } }) {
     <PostItem>
       <PostItem.Link to={`/post/${id}`}>
         <PostItem.Image src="/assets/images/223791.png" alt="cover" />
-        <PostItem.Title>{title}</PostItem.Title>
+        <PostItem.Title>{capitalizeFirstLetter(title)}</PostItem.Title>
         <PostItem.Text>{body}</PostItem.Text>
         <PostItem.Footer>
           <PostItem.Author>
