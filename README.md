@@ -13,5 +13,5 @@
 
 2. What could you have improved?
 
-- I could add state management to the application, either using Context or Redux, so it wouldn't need to hit the api when going to PostPage.
-- Created a SearchBar so you could search by post title.
+- Add state management to the application, either using Context or Redux, so it wouldn't need to hit the api when going to PostPage.
+- Create a search bar so you can search by post title.
